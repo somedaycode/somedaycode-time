@@ -1,0 +1,26 @@
+{
+  "name": "somedaycode-time",
+  "version": "0.1.0",
+  "description": "get something useful about time logic",
+  "main": "/dist/index.js",
+  "types": "/dist/index.d.ts",
+  "scripts": {
+    "build": "rm -rf dist/ && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/somedaycode/somedaycode-time.git"
+  },
+  "keywords": [
+    "time"
+  ],
+  "author": "somedaycode <somedaycode@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/somedaycode/somedaycode-time/issues"
+  },
+  "homepage": "https://github.com/somedaycode/somedaycode-time#readme",
+  "devDependencies": {
+    "typescript": "^4.3.5"
+  }
+}
