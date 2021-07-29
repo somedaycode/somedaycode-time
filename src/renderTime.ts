@@ -5,6 +5,11 @@ type Time = {
   time: number;
 };
 
+type RenderText = {
+  dateName: 'minute' | 'day' | 'hour' | 'month' | 'year';
+  timePassed: number;
+};
+
 const getToday = () => new Date().getTime();
 
 const getCreatedTime = (time: string): number => new Date(time).getTime();
@@ -89,3 +94,10 @@ export const getTimePassed = (created: string | number) =>
     getTime,
     calculateHowMuchTimePassed
   )(created);
+
+export const getTextFromTimePassed = ({
+  dateName,
+  timePassed,
+}: RenderText): string => {
+  return `${timePassed} ${timePassed === 1 ? dateName : dateName + 's'} ago`;
+};
