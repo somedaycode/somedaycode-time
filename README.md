@@ -30,14 +30,34 @@ getTimePassed('2021-07-30T03:05:00');
 const { dateName, timePassed } = getTimePassed(
   new Date('2018-07-29').getTime()
 );
-// 'year', 2
+// 'year', 3
 ```
 
 #### getTextFromTimePassed()
 
 ```ts
-// testTime = '2021-07-30 04:06'
+// input: '2021-07-30 04:06'
 const timePassed = getTimePassed('2021-07-30 03:05');
 const text = getTextFromTimePassed(timePassed);
-// test === '1 hour ago'
+// output: '1 hour ago'
+```
+
+#### getDiff()
+
+```
+getDiff(String | Date)
+```
+
+To get the difference in milliseconds, use getDiff
+
+```ts
+getDiff('2021-07-30', '2021-06-30'); // 2592000000
+```
+
+To get the difference another unit of DateType, pass a DateType as the third argument.
+
+warning: currently works only with `minute`
+
+```ts
+getDiff('2021-07-30', '2021-06-30', 'minute'); // 43200
 ```

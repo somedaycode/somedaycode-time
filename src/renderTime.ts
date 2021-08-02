@@ -12,7 +12,7 @@ type RenderText = {
 
 const getToday = () => new Date().getTime();
 
-const getCreatedTime = (time: string): number => new Date(time).getTime();
+const getTimeInMiliseconds = (time: string): number => new Date(time).getTime();
 
 const getTimeGapFromCreation =
   (currentTime: number) => (createdTime: number | string) => {
@@ -100,4 +100,20 @@ export const getTextFromTimePassed = ({
   timePassed,
 }: RenderText): string => {
   return `${timePassed} ${timePassed === 1 ? dateName : dateName + 's'} ago`;
+};
+
+export const getDiff = (
+  future: string,
+  past: string,
+  dateType: string = ''
+): number | string => {
+  if (typeof dateType !== 'string') throw new Error('dateType must be string');
+  if (dateType === '') {
+    return pipe(getTimeGapFromCreation(getTimeInMiliseconds(future)))(past);
+  } else if (dateType === 'minute') {
+    return pipe(
+      getTimeGapFromCreation(getTimeInMiliseconds(future)),
+      getTotalMinutesBetweenGap
+    )(past);
+  } else throw new Error('somethings wrong, check your parameter');
 };
