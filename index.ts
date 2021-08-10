@@ -1,1 +1,1 @@
-export { getTimePassed, getTextFromTimePassed, getDiff } from './src/main';
+export { getTimePassed, getTextFrom, getDiff } from './src/main';
