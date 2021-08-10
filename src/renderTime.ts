@@ -1,14 +1,4 @@
-import pipe from './pipe';
-
-type Time = {
-  id: string;
-  time: number;
-};
-
-type RenderText = {
-  dateName: 'minute' | 'day' | 'hour' | 'month' | 'year';
-  timePassed: number;
-};
+import type { RenderText, Time } from './renderTime.type';
 
 const getToday = () => new Date().getTime();
 
@@ -86,50 +76,17 @@ const checkHours = (time: number) => {
     : { dateName: 'hour', timePassed: 1 };
 };
 
-export const getTimePassed = (created: string | number) =>
-  pipe(
-    getTimeGapFromCreation(getToday()),
-    getTotalMinutesBetweenGap,
-    checkIfDayPassedFromCreation,
-    getTime,
-    calculateHowMuchTimePassed
-  )(created);
-
-export const getTextFromTimePassed = ({
-  dateName,
-  timePassed,
-}: RenderText): string => {
+const getText = ({ dateName, timePassed }: RenderText): string => {
   return `${timePassed} ${timePassed === 1 ? dateName : dateName + 's'} ago`;
 };
 
-export const getDiff = (
-  future: string,
-  past: string,
-  dateType: string = ''
-): number | string => {
-  if (typeof dateType !== 'string') throw new Error('dateType must be string');
-  if (dateType === '') {
-    return pipe(getTimeGapFromCreation(getTimeInMiliseconds(future)))(past);
-  } else if (dateType === 'minute') {
-    return pipe(
-      getTimeGapFromCreation(getTimeInMiliseconds(future)),
-      getTotalMinutesBetweenGap
-    )(past);
-  } else if (dateType === 'hour') {
-    return (
-      pipe(
-        getTimeGapFromCreation(getTimeInMiliseconds(future)),
-        getTotalMinutesBetweenGap
-      )(past) / 60
-    );
-  } else if (dateType === 'day') {
-    return (
-      pipe(
-        getTimeGapFromCreation(getTimeInMiliseconds(future)),
-        getTotalMinutesBetweenGap
-      )(past) /
-      60 /
-      24
-    );
-  } else throw new Error('somethings wrong, check your parameter');
+export {
+  getToday,
+  getTimeInMiliseconds,
+  getTimeGapFromCreation,
+  getTotalMinutesBetweenGap,
+  checkIfDayPassedFromCreation,
+  calculateHowMuchTimePassed,
+  getTime,
+  getText,
 };
