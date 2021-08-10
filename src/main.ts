@@ -19,7 +19,7 @@ const getTimePassed = (created: string | number) =>
     calculateHowMuchTimePassed
   )(created);
 
-const getTextFromTimePassed = (created: string | number) =>
+const getTextFrom = (created: string | number) =>
   pipe(
     getTimeGapFromCreation(getToday()),
     getTotalMinutesBetweenGap,
@@ -61,4 +61,4 @@ const getDiff = (
   } else throw new Error('somethings wrong, check your parameter');
 };
 
-export { getTimePassed, getTextFromTimePassed, getDiff };
+export { getTimePassed, getTextFrom, getDiff };

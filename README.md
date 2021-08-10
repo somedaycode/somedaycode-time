@@ -2,8 +2,11 @@
 
 Do you want to know how much time passed from something created?
 
-- `getTimePassed()`: return `Object` which has values of how much time passed `{dateName: string, timePassed: number}`
-- `getTextFromTimePassed()`: return `String` like `'1 hour ago'`
+**LIST OF Fns**
+
+- getTimePassed
+- getDiff
+- getTextFrom
 
 ### HOW TO USE
 
@@ -33,13 +36,11 @@ const { dateName, timePassed } = getTimePassed(
 // 'year', 3
 ```
 
-#### getTextFromTimePassed()
+#### getTextFrom()
 
 ```ts
-// input: '2021-07-30 04:06'
-const timePassed = getTimePassed('2021-07-30 03:05');
-const text = getTextFromTimePassed(timePassed);
-// output: '1 hour ago'
+const text = getTextFrom('2021-07-30 03:05');
+// '1 hour ago'
 ```
 
 #### getDiff()
