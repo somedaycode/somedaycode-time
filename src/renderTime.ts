@@ -115,5 +115,21 @@ export const getDiff = (
       getTimeGapFromCreation(getTimeInMiliseconds(future)),
       getTotalMinutesBetweenGap
     )(past);
+  } else if (dateType === 'hour') {
+    return (
+      pipe(
+        getTimeGapFromCreation(getTimeInMiliseconds(future)),
+        getTotalMinutesBetweenGap
+      )(past) / 60
+    );
+  } else if (dateType === 'day') {
+    return (
+      pipe(
+        getTimeGapFromCreation(getTimeInMiliseconds(future)),
+        getTotalMinutesBetweenGap
+      )(past) /
+      60 /
+      24
+    );
   } else throw new Error('somethings wrong, check your parameter');
 };
