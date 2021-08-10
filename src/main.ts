@@ -10,7 +10,7 @@ import {
   getTotalMinutesBetweenGap,
 } from './renderTime';
 
-export const getTimePassed = (created: string | number) =>
+const getTimePassed = (created: string | number) =>
   pipe(
     getTimeGapFromCreation(getToday()),
     getTotalMinutesBetweenGap,
@@ -19,7 +19,7 @@ export const getTimePassed = (created: string | number) =>
     calculateHowMuchTimePassed
   )(created);
 
-export const getTextFromTimePassed = (created: string | number) =>
+const getTextFromTimePassed = (created: string | number) =>
   pipe(
     getTimeGapFromCreation(getToday()),
     getTotalMinutesBetweenGap,
@@ -29,7 +29,7 @@ export const getTextFromTimePassed = (created: string | number) =>
     getText
   )(created);
 
-export const getDiff = (
+const getDiff = (
   future: string,
   past: string,
   dateType: string = ''
@@ -60,3 +60,5 @@ export const getDiff = (
     );
   } else throw new Error('somethings wrong, check your parameter');
 };
+
+export { getTimePassed, getTextFromTimePassed, getDiff };
