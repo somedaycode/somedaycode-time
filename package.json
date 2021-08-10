@@ -1,6 +1,6 @@
 {
   "name": "somedaycode-time",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "get something useful about time logic",
   "main": "/dist/index.js",
   "types": "/dist/index.d.ts",
