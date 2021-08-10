@@ -56,8 +56,14 @@ getDiff('2021-07-30', '2021-06-30'); // 2592000000
 
 To get the difference another unit of DateType, pass a DateType as the third argument.
 
-warning: currently works only with `minute`
-
 ```ts
 getDiff('2021-07-30', '2021-06-30', 'minute'); // 43200
+```
+
+```ts
+getDiff('2021-07-30', '2021-06-30', 'hour'); // 720
+```
+
+```ts
+getDiff('2021-07-30', '2021-06-30', 'day'); // 30
 ```

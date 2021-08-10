@@ -1,1 +1,5 @@
-export { getTimePassed, getTextFromTimePassed } from './src/renderTime';
+export {
+  getTimePassed,
+  getTextFromTimePassed,
+  getDiff,
+} from './src/renderTime';
